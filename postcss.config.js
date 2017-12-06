@@ -7,19 +7,15 @@ module.exports = {
     require('autoprefixer'),
     // require('postcss-assets'),
     require('postcss-property-lookup'),
-    require('postcss-pxtorem')({
-      rootValue: 75,
+    require('postcss-px-to-viewport')({
+      viewportWidth: 750,
+      viewportHeight: 1334,
       unitPrecision: 5,
-      propList: ['*'],
-      // selectorBlackList: [/^p/],
+      viewportUnit: 'vw',
       selectorBlackList: [],
-      replace: true,
-      mediaQuery: false,
-      minPixelValue: 6
+      minPixelValue: 1,
+      mediaQuery: false
     }),
-    require('postcss-adaptive')({
-      remUnit: 45 //不会对postcss-pxtorem有任何影响，此代码仅供测试，无任何意义。
-    }),    
     require('cssnano')({
       preset: 'default'
     })
